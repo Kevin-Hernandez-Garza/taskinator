@@ -14,16 +14,36 @@
     <header>
         <h1 class="page-title">Taskinator</h1>
         <p>Click the button below to add a new task!</p>
-        <button class="btn" id="save-task">Add Task</button>
+
+        <!-- form for creating the new tasks, now we can use the id attribute in JS code -->
+        <form id="task-form">
+            <!-- task name input -->
+            <div class="form-group">
+                <input type="text" name="task-name" placeholder="Enter Task Name" />
+            </div>
+            <!-- task type dropdown -->
+            <div class="form-group">
+                <select name="task-type" class="select-dropdown">
+                    <!-- it's options/choices -->
+                    <!-- the selected property makes it appear first, and disabled will not allow the user to select that option -->
+                    <option value="" disabled selected> Pick a task type</option>
+                    <option value="Print">Print</option>
+                    <option value="Web">Web</option>
+                    <option value="Mobile">Mobile</option>
+                </select>
+            </div>
+            <!-- we wrapped it in a div to make styling easier -->
+            <div class="form-group">
+                <button class="btn" id="save-task" type="submit">Add Task</button>
+            </div>
+        </form>
     </header>
 
     <main class="page-content">
         <section class="task-list-wrapper">
             <h2 class="list-title">Task To Do</h2>
 
-            <ul class="task-list" id="tasks-to-do">
-                <li class="task-item">A task is going to be added soon!</li>
-            </ul>
+            <ul class="task-list" id="tasks-to-do"> </ul>
         </section>
     </main>
 
