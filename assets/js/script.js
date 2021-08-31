@@ -74,8 +74,7 @@ var createTaskEl = function (taskDataObj) {
     // increase task counter for next unique id
     taskIdCounter++;
 
-    console.log(taskDataObj);
-    console.log(taskDataObj.status);
+    saveTasks();
 }
 
 var createTaskActions = function (taskId) {
@@ -176,6 +175,8 @@ var deleteTask = function (taskId) {
 
     // reassign tasks array to be the same as updatedTaskArray
     tasks = updatedTaskArr;
+
+    saveTasks();
 };
 
 var completeEditTask = function (taskName, taskType, taskId) {
@@ -194,6 +195,8 @@ var completeEditTask = function (taskName, taskType, taskId) {
             tasks[i].type = taskType;
         }
     };
+
+    saveTasks();
 
     alert("Task Updated!");
 
@@ -224,10 +227,19 @@ var taskStatusChangeHandler = function (event) {
         if (tasks[i].id === parseInt(taskId)) {
             tasks[i].status = statusValue;
         }
-        console.log(tasks);
     }
 
+    saveTasks();
+
 };
+
+// creating a function to save tasks to localStorage and execute the function every time we update, create, or delete a task
+var saveTasks = function () {
+    // saving the data with the .setItem method 
+    // the stringify(ARRAY) method converts an array into a string and saves it in the localStorage
+    // JSON = JavaScript Object Notation, organizing and structuring data that's transferred from one place to another
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 
 // event listeners
 pageContentEl.addEventListener("click", taskButtonHandler);
