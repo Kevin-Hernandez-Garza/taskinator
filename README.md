@@ -6,7 +6,7 @@
 
 ## Screenshot
 
-![mockup](/assets/images/taskinator-mock.png)
+![mockup](assets/images/taskinator-mock.png)
 
 ## Website
 
